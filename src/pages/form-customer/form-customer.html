@@ -1,0 +1,48 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Datos del Cliente</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+		<ion-list-header no-lines>DATOS DEL CLIENTE</ion-list-header>
+		<ion-item>
+			<ion-label stacked>Nombre</ion-label>
+			<ion-input type="text" [(ngModel)]="customer.nombre"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Teléfono</ion-label>
+			<ion-input type="number" [(ngModel)]="customer.telefono"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Dirección</ion-label>
+			<ion-input type="text" [(ngModel)]="customer.direccion"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>
+				Pendiente 
+				<ion-icon *ngIf="!!pendiente"
+					name="ios-checkmark-circle" color="primary">
+				</ion-icon>
+			</ion-label>
+			<ion-input type="number" [(ngModel)]="pendiente"></ion-input>
+		</ion-item>
+	</ion-list>
+
+	<ion-row justify-content-center>
+		<div>
+			<button navPop ion-button icon-right color="light">
+				Cencelar
+				<ion-icon name="close"></ion-icon>
+			</button>
+			<button ion-button icon-right (click)="save()">
+				Guardar
+				<ion-icon name="send"></ion-icon>
+			</button>
+		</div>
+	</ion-row>
+
+</ion-content>

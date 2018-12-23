@@ -1,0 +1,110 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Detalle de Cuenta</ion-title>
+
+		<ion-buttons right>
+			<button ion-button clear icon-right 
+				(click)="editarCuenta()"
+				*ngIf="!cuenta?.archivada">
+				Editar
+				<ion-icon name="create"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list no-lines>
+		<ion-list-header>TITULAR</ion-list-header>
+		<ion-item>
+			<p>{{ cliente?.nombre }}</p>
+		</ion-item>
+	</ion-list>
+
+	<ion-list no-lines>
+		<ion-list-header>FECHA DEL PRESTAMO</ion-list-header>
+		<ion-item>
+			<p>{{ cuenta?.fecha | date : 'yyyy/MM/dd' }}</p>
+		</ion-item>
+	</ion-list>
+
+	<ion-list no-lines>
+		<ion-list-header>CAPITAL PRESTADO</ion-list-header>
+		<ion-item>
+			<p>{{ cuenta?.capital | currency : '$ ' : 'symbol' : '4.0-0' }}</p>
+		</ion-item>
+	</ion-list>
+
+	<ion-list no-lines>
+		<ion-list-header>INTERESES</ion-list-header>
+		<ion-item>
+			<p>
+				{{ cuenta?.interes + '% > ' + (interesMensual | currency : '$ ' : 'symbol' : '4.0-0') }}
+			</p>
+		</ion-item>
+	</ion-list>
+
+	<ion-list no-lines>
+		<ion-list-header>TOTAL PAGADO</ion-list-header>
+		<ion-item>
+			<p>{{ totalPagado | currency : '$ ' : 'symbol' : '4.0-0' }}</p>
+		</ion-item>
+	</ion-list>
+		
+	<!-- <ion-list no-lines>
+		<ion-list-header>DEBE</ion-list-header>
+		<ion-item>
+			<p>
+				{{ debe | currency : '$ ' : 'symbol' : '4.0-0' }}
+			</p>
+		</ion-item>
+	</ion-list> -->
+
+	<ion-list no-lines>
+		<ion-list-header>ULTIMO PAGO</ion-list-header>
+		<ion-item>
+			<p>
+				{{ ultimoPago?.cantidad | currency : '$ ' : 'symbol' : '4.0-0' }}
+				<br>
+				{{ ultimoPago?.fecha | date : 'yyyy/MM/dd' }}
+			</p>
+		</ion-item>
+	</ion-list>
+
+	<ion-list no-lines>
+		<ion-list-header>TOTAL DE PAGOS REALIZADOS</ion-list-header>
+		<ion-item>
+			<p>{{ totalPagosRealizados }}</p>
+		</ion-item>
+	</ion-list>
+
+	<ion-row justify-content-center>
+		<div *ngIf="cuenta">
+			<button ion-button icon-right color="light" 
+				(click)="archivarCuenta()"
+				*ngIf="!cuenta?.archivada">
+				Archivar
+				<ion-icon name="archive"></ion-icon>
+			</button>
+
+			<button ion-button icon-right color="light" 
+				(click)="desarchivarCuenta()"
+				*ngIf="cuenta?.archivada">
+				Desarchivar
+				<ion-icon name="archive"></ion-icon>
+			</button>
+
+			<button ion-button icon-right 
+				*ngIf="!cuenta?.archivada"
+				(click)="eliminarCuenta()">
+				Eliminar
+				<ion-icon name="trash"></ion-icon>
+			</button>
+		</div>
+	</ion-row>
+
+</ion-content>

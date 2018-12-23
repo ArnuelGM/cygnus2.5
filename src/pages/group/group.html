@@ -1,0 +1,31 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>{{ groupInfo?.nombre }}</ion-title>
+
+		<!-- buttons -->
+		<ion-buttons right>
+			<button ion-button clear icon-right (click)="addCustomers()">
+				Clientes
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-buttons>
+
+	</ion-navbar>
+
+	<!-- toolbar -->
+	<ion-toolbar color="primary">
+		<ion-searchbar showCancelButton="true" 
+			[(ngModel)]="busqueda" 
+			(ionInput)="buscarCliente()">
+		</ion-searchbar>
+	</ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<customer-list [customers]="clientes"></customer-list>
+
+</ion-content>

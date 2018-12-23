@@ -1,0 +1,49 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			<p>
+				Cuenta de
+				<br>
+				<small>{{ cliente?.nombre }}</small>
+			</p>
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+		<ion-list-header no-lines>DATOS DE LA CUENTA</ion-list-header>
+		<ion-item>
+			<ion-label stacked>Capital</ion-label>
+			<ion-input type="number" [(ngModel)]="capital"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Fecha</ion-label>
+			<ion-input type="date" [(ngModel)]="cuenta.fecha"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Cuota Diaria</ion-label>
+			<ion-input type="number" [(ngModel)]="cuotaDiaria"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Interés</ion-label>
+			<ion-input type="number" [(ngModel)]="interes"></ion-input>
+		</ion-item>
+	</ion-list>
+	
+	<ion-row justify-content-center>
+		<div>
+			<button navPop ion-button icon-right color="light">
+				Cencelar
+				<ion-icon name="close"></ion-icon>
+			</button>
+			<button ion-button icon-right (click)="save()">
+				Guardar
+				<ion-icon name="send"></ion-icon>
+			</button>
+		</div>
+	</ion-row>
+
+</ion-content>

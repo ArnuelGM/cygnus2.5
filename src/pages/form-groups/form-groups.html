@@ -1,0 +1,32 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Datos del Grupo</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+	<ion-list>
+		<ion-list-header no-lines>DATOS DEL GRUPO</ion-list-header>
+		<ion-item>
+			<ion-label stacked>Nombre</ion-label>
+			<ion-input type="text" [(ngModel)]="grupo.nombre"></ion-input>
+		</ion-item>
+	</ion-list>
+	
+	<ion-row justify-content-center>
+		<div>
+			<button navPop ion-button icon-right color="light">
+				Cencelar
+				<ion-icon name="close"></ion-icon>
+			</button>
+			<button ion-button icon-right (click)="guardar()">
+				Guardar
+				<ion-icon name="send"></ion-icon>
+			</button>
+		</div>
+	</ion-row>
+
+</ion-content>

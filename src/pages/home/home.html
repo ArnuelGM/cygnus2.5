@@ -1,14 +1,37 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<!-- menu -->
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<!-- titulo -->
+		<ion-title>
+			Clientes
+		</ion-title>
+
+		<!-- buttons -->
+		<ion-buttons right>
+			<button ion-button clear icon-right (click)="createCustomer()">
+				Agregar
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+
+	<!-- toolbar -->
+	<ion-toolbar color="primary">
+		<ion-searchbar showCancelButton="true"
+			[(ngModel)]="busqueda"
+			(ionInput)="buscarCliente()">
+		</ion-searchbar>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+	<customer-list 
+		[customers]="clientes" 
+		(archivar)="getClientes()">
+	</customer-list>
+
 </ion-content>

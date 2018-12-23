@@ -1,0 +1,37 @@
+<ion-menu [content]="content">
+	<ion-header>
+		<ion-toolbar>
+			<ion-item no-lines color="primary">
+				<ion-avatar item-start>
+					<img style="border-radius: 5px;" src="./assets/imgs/logo.png">
+				</ion-avatar>
+				<ion-label>
+					<b>Cygnus 2</b>
+				</ion-label>
+			</ion-item>
+		</ion-toolbar>
+	</ion-header>
+	<ion-content>
+
+		<ion-list no-lines>
+			<button ion-item *ngFor="let page of pages" menuClose>
+				<ion-icon item-start [name]="page.icon"></ion-icon>
+				<span ion-text>{{page.name}}</span>
+			</button>
+
+			<!-- otras opciones -->
+			<ion-list-header padding-left>Opciones Rápidas</ion-list-header>
+			<ion-item menuClose>
+				<ion-icon name="ios-flash" item-start></ion-icon>
+				<span ion-text>Nuevo Cliente</span>
+			</ion-item>
+			<ion-item menuClose>
+				<ion-icon name="ios-flash" item-start></ion-icon>
+				<span ion-text>Total Hoy</span>
+			</ion-item>
+		</ion-list>
+
+	</ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>

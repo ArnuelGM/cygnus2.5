@@ -1,0 +1,28 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>
+			<p>
+				Agregar Clientes a:
+				<br>
+				<small>{{ groupInfo?.nombre }}</small>
+			</p>
+		</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+		<ion-item *ngFor="let cliente of clientes">
+			<ion-label>{{ cliente.nombre }}</ion-label>
+			<ion-checkbox 
+				(ionChange)="change(cliente._id, $event)"
+				[ngModel]="!!(this.groupInfo.customers.indexOf(cliente._id)+1)">
+			</ion-checkbox>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

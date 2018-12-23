@@ -1,0 +1,30 @@
+<ion-list>
+	<ion-item-sliding *ngFor="let customer of customers">
+		<button (click)="verCuentas(customer._id)" 
+			ion-item text-wrap>
+			<span>
+				{{ customer.nombre }}
+			</span>
+		</button>
+		<ion-item-options side="left" *ngIf="!customer?.archivado">
+			<button ion-button icon-start color="primary" (click)="editarCliente(customer._id)">
+				<ion-icon name="ios-create"></ion-icon>
+				Editar
+			</button>
+			<button ion-button icon-start color="primary" (click)="archivarCliente(customer._id)">
+				<ion-icon name="ios-archive"></ion-icon>
+				Archivar
+			</button>
+		</ion-item-options>
+		<ion-item-options side="right" *ngIf="!customer?.archivado">
+			<button ion-button icon-start color="primary" (click)="editarCliente(customer._id)">
+				<ion-icon name="ios-create"></ion-icon>
+				Editar
+			</button>
+			<button ion-button icon-start color="primary" (click)="archivarCliente(customer._id)">
+				<ion-icon name="ios-archive"></ion-icon>
+				Archivar
+			</button>
+		</ion-item-options>
+	</ion-item-sliding>
+</ion-list>

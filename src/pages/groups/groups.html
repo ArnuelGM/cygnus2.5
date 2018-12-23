@@ -1,0 +1,38 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Grupos</ion-title>
+
+		<!-- buttons -->
+		<ion-buttons right>
+			<button ion-button clear icon-right (click)="createGroup()">
+				Agregar
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+		<ion-item-sliding *ngFor="let group of grupos">
+			<button ion-item text-wrap (click)="verGrupo(group._id)">
+				{{ group.nombre }}
+			</button>
+			<ion-item-options side="left">
+				<button ion-button icon-start (click)="cambiarNombre(group._id)">
+					<ion-icon name="ios-create"></ion-icon>
+					Renombrar
+				</button>
+			</ion-item-options>
+			<ion-item-options side="right">
+				<button ion-button icon-start (click)="cambiarNombre(group._id)">
+					<ion-icon name="ios-create"></ion-icon>
+					Renombrar
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+
+</ion-content>

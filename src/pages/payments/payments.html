@@ -1,0 +1,49 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			<p>
+				<small>{{ cliente?.nombre }}</small>
+				<br>
+				<small>
+					{{ 
+						(cuenta?.capital | currency: '$ ' : 'symbol' : '4.0-0') 
+						+ ' - ' + 
+						(cuenta?.fecha | date: 'yyyy/MM/dd') 
+					}}
+				</small>
+			</p>
+		</ion-title>
+
+		<!-- buttons -->
+		<ion-buttons end>
+			<button ion-button icon-only color="light" 
+				*ngIf="!cuenta?.archivada"
+				(click)="goPaymentForm()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-list>
+	
+		<ion-item *ngFor="let pay of paymentsDetail">
+	
+			<ion-icon name="cash" color="primary" item-start></ion-icon>
+	
+			<span>{{ pay.cantidad | currency: '$ ' : 'symbol' : '4.0-0' }}</span>
+			<p>{{ pay.fecha | date: 'yyyy/MM/dd' }}</p>
+	
+			<button ion-button item-end icon-only clear 
+				*ngIf="!cuenta?.archivada"
+				(click)="eliminarPago(pay)">
+				<ion-icon name="trash"></ion-icon>
+			</button>
+	
+		</ion-item>
+	
+	</ion-list>
+
+</ion-content>

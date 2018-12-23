@@ -1,0 +1,66 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>
+			<p>
+				Cuentas de
+				<br>
+				<small>{{ cliente?.nombre }}</small>
+			</p>
+		</ion-title>
+
+		<!-- buttons -->
+		<ion-buttons right>
+			<button ion-button clear icon-right (click)="agregarCuenta()">
+				Agregar
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-buttons>
+
+	</ion-navbar>
+
+	<ion-toolbar>
+		<ion-segment [(ngModel)]="estadoCuenta" (ionChange)="mostrarCuentas()" color="light">
+			<ion-segment-button value="cuentas_activas">
+				Activas
+			</ion-segment-button>
+			<ion-segment-button value="cuentas_archivadas">
+				Archivadas
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+
+		<ion-item-sliding *ngFor="let cuenta of cuentas">
+			<button (click)="verDetalleCuenta(cuenta._id)" ion-item>
+
+				<ion-icon name="folder" item-start color="primary">
+				</ion-icon>
+
+				<span>{{ cuenta.capital | currency : '$ ' : 'symbol' : '4.0-0' }}</span>
+				<p>{{ cuenta.fecha | date : 'yyyy/MM/dd' }}</p>
+
+			</button>
+			<ion-item-options side="left">
+				<button ion-button icon-start color="primary" (click)="goAccountDetail(cuenta._id)">
+					<ion-icon name="more"></ion-icon>
+					Detalles
+				</button>
+			</ion-item-options>
+			<ion-item-options side="right">
+				<button ion-button icon-start color="primary" (click)="goAccountDetail(cuenta._id)">
+					<ion-icon name="more"></ion-icon>
+					Detalles
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+
+	</ion-list>
+
+</ion-content>
