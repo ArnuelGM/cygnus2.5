@@ -38,7 +38,7 @@ export class AccountDetailProvider extends PouchdbProvider {
 			alertController.create({
 				title: 'Confirmar',
 				message: `
-				La cuenta no podrá ser modifcada una vez archivada.\n\n
+				La cuenta no podrá ser modificada una vez archivada.\n\n
 				Desea realmente realizar este cambio?
 				`,
 					buttons: [
@@ -73,7 +73,7 @@ export class AccountDetailProvider extends PouchdbProvider {
 				`,
 				buttons: [
 					{ text: 'Cancelar', role: 'cancel' },
-					{ text: 'Archivar', handler: () => result(true) }
+					{ text: 'Eliminar', handler: () => result(true) }
 				]
 			}).present();
 		});
